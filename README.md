@@ -1,12 +1,10 @@
-#BOX BLUR
-
 🚀 CUDA Particle Filter – GPU Capstone Project
 📌 Overview
 
 This project implements a CUDA-accelerated Particle Filter for real-time state estimation and tracking.
-The goal is to demonstrate how GPU parallelism can drastically speed up computationally expensive algorithms by processing thousands of particles simultaneously.
+The objective is to demonstrate how GPU parallelism significantly improves performance by processing thousands of particles simultaneously.
 
-All major stages of the particle filter are executed on the GPU:
+All major stages of the particle filter run on the GPU:
 
 Initialization
 
@@ -22,17 +20,18 @@ This project was developed as part of the GPU Specialization Capstone.
 
 🧠 Algorithm Summary
 
-A particle filter estimates the state of a system using a large set of random samples (particles).
+A particle filter estimates the state of a system using many random samples called particles.
+
 Each iteration performs:
 
 Propagation
 Updates each particle using a motion model.
 
 Update
-Computes the likelihood of each particle based on sensor measurements.
+Computes how well each particle matches the measurement.
 
 Normalization
-Normalizes all particle weights so they sum to 1.
+Scales all weights so their sum equals 1.
 
 Resampling
 Generates a new particle set based on weight distribution.
@@ -41,10 +40,10 @@ GPU parallelism assigns one thread per particle, enabling massive speedup over C
 
 📂 Project Structure
 .
-├── main.cu                # Program entry point
-├── particle_filter.cu     # CUDA kernel implementations
-├── particle_filter.cuh    # Structs and kernel declarations
-├── pgm_images.zip         # Test PGM images (synthetic data)
+├── main.cu
+├── particle_filter.cu
+├── particle_filter.cuh
+├── pgm_images.zip
 └── README.md
 
 ⚙️ Requirements
@@ -53,24 +52,18 @@ NVIDIA GPU
 
 CUDA Toolkit (12.4+ recommended)
 
-Linux / Google Colab / WSL (recommended)
+Linux / WSL / Google Colab
 
 nvcc compiler
 
 🔧 Compilation
-
-Navigate to project folder and run:
-
 nvcc -o particle_filter main.cu particle_filter.cu
 
 ▶️ Execution
-
-Run:
-
 ./particle_filter
 
 
-If your program takes arguments:
+If arguments are required:
 
 ./particle_filter input_file particle_count
 
@@ -78,74 +71,73 @@ If your program takes arguments:
 Init time (ms): 11.3092
 Iter 0 — prop: 0.007 ms, update: 0.003 ms, norm: 0.003 ms, resamp: 0.003 ms
 Iter 1 — prop: 0.003 ms, update: 0.004 ms, norm: 0.003 ms, resamp: 0.003 ms
+Iter 2 — prop: 0.004 ms, update: 0.003 ms, norm: 0.003 ms, resamp: 0.003 ms
 ...
 Iter 9 — prop: 0.004 ms, update: 0.003 ms, norm: 0.003 ms, resamp: 0.003 ms
 Done.
 
-Interpretation
+Output Explanation
 
-Init time → GPU memory setup and particle initialization
+Init time → GPU memory setup & initialization
 
-prop → propagation kernel
+prop → particle propagation
 
-update → weight update kernel
+update → weight computation
 
-norm → normalization kernel
+norm → weight normalization
 
-resamp → resampling kernel
+resamp → particle resampling
 
-Each iteration completes in ~0.012 ms, proving GPU acceleration efficiency.
+Each iteration completes in ~0.012 ms, proving efficient GPU acceleration.
 
 🖼 Test Data
 
-The repository includes 10 synthetic PGM images used for testing:
+The repository includes 10 synthetic PGM images:
 
 256×256 grayscale images
 
 Stored in pgm_images.zip
 
-Useful for benchmarking and validation
+Used for benchmarking and testing
 
 📈 Performance Highlights
 
-Massive parallelism: one thread per particle
+One GPU thread per particle
 
 Sub-millisecond kernel execution
 
-Scales efficiently with particle count
+Efficient scaling with particle count
 
-Minimal host-device memory transfers
+Minimal host-device transfers
 
 🧪 What I Learned
 
 CUDA kernel design
 
-GPU memory management (cudaMalloc, cudaMemcpy)
+GPU memory management
 
-Kernel launch configuration
-
-Parallel reduction techniques
+Parallel reduction
 
 Performance profiling
 
-GPU optimization strategies
+Kernel optimization strategies
 
-🔮 Future Improvements
+🔮 Future Work
 
-Support for real sensor / camera input
+Real sensor / camera input
 
 Shared memory optimization
 
-Thrust prefix-sum based resampling
+Thrust-based prefix sum resampling
 
-Visual particle animation
+Visualization of particle movement
 
 Multi-GPU scaling
 
 🎯 Conclusion
 
 This project demonstrates how GPU computing transforms particle filtering from a slow CPU process into a real-time parallel system.
-It validates CUDA’s power for scientific computing and robotics applications.
+It highlights CUDA’s power for scientific and robotics applications.
 
 👤 Author
 
