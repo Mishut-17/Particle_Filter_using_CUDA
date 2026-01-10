@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.18)
+project(cuda_particle_filter LANGUAGES CXX CUDA)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_executable(cuda_particle_filter src/main.cu)
+set_target_properties(cuda_particle_filter PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
