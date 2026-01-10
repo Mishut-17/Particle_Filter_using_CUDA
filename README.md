@@ -1,73 +1,96 @@
-🚀 CUDA Particle Filter – GPU Capstone Project
-📌 Overview
+Here you go — **direct copy-paste README** for GitHub 👇
+(just paste this into `README.md`)
 
-This project implements a CUDA-accelerated Particle Filter for real-time state estimation and tracking.
+---
+
+# 🚀 CUDA Particle Filter – GPU Capstone Project
+
+## 📌 Overview
+
+This project implements a **CUDA-accelerated Particle Filter** for real-time state estimation and tracking.
 The objective is to demonstrate how GPU parallelism significantly improves performance by processing thousands of particles simultaneously.
 
 All major stages of the particle filter run on the GPU:
 
-Initialization
+* Initialization
+* Propagation
+* Weight update
+* Normalization
+* Resampling
 
-Propagation
+This project was developed as part of the **GPU Specialization Capstone**.
 
-Weight update
+---
 
-Normalization
+## 🧠 Algorithm Summary
 
-Resampling
-
-This project was developed as part of the GPU Specialization Capstone.
-
-🧠 Algorithm Summary
-
-A particle filter estimates the state of a system using many random samples called particles.
+A **particle filter** estimates the state of a system using many random samples called particles.
 
 Each iteration performs:
 
-Propagation
-Updates each particle using a motion model.
+1. **Propagation**
+   Updates each particle using a motion model.
 
-Update
-Computes how well each particle matches the measurement.
+2. **Update**
+   Computes how well each particle matches the measurement.
 
-Normalization
-Scales all weights so their sum equals 1.
+3. **Normalization**
+   Scales all weights so their sum equals 1.
 
-Resampling
-Generates a new particle set based on weight distribution.
+4. **Resampling**
+   Generates a new particle set based on weight distribution.
 
-GPU parallelism assigns one thread per particle, enabling massive speedup over CPU implementations.
+GPU parallelism assigns **one thread per particle**, enabling massive speedup over CPU implementations.
 
-📂 Project Structure
+---
+
+## 📂 Project Structure
+
+```
 .
 ├── main.cu
 ├── particle_filter.cu
 ├── particle_filter.cuh
 ├── pgm_images.zip
 └── README.md
+```
 
-⚙️ Requirements
+---
 
-NVIDIA GPU
+## ⚙️ Requirements
 
-CUDA Toolkit (12.4+ recommended)
+* NVIDIA GPU
+* CUDA Toolkit (12.4+ recommended)
+* Linux / WSL / Google Colab
+* nvcc compiler
 
-Linux / WSL / Google Colab
+---
 
-nvcc compiler
+## 🔧 Compilation
 
-🔧 Compilation
+```
 nvcc -o particle_filter main.cu particle_filter.cu
+```
 
-▶️ Execution
+---
+
+## ▶️ Execution
+
+```
 ./particle_filter
-
+```
 
 If arguments are required:
 
+```
 ./particle_filter input_file particle_count
+```
 
-📊 Sample Output
+---
+
+## 📊 Sample Output
+
+```
 Init time (ms): 11.3092
 Iter 0 — prop: 0.007 ms, update: 0.003 ms, norm: 0.003 ms, resamp: 0.003 ms
 Iter 1 — prop: 0.003 ms, update: 0.004 ms, norm: 0.003 ms, resamp: 0.003 ms
@@ -75,71 +98,79 @@ Iter 2 — prop: 0.004 ms, update: 0.003 ms, norm: 0.003 ms, resamp: 0.003 ms
 ...
 Iter 9 — prop: 0.004 ms, update: 0.003 ms, norm: 0.003 ms, resamp: 0.003 ms
 Done.
+```
 
-Output Explanation
+### Output Explanation
 
-Init time → GPU memory setup & initialization
+* **Init time** → GPU memory setup & initialization
+* **prop** → particle propagation
+* **update** → weight computation
+* **norm** → weight normalization
+* **resamp** → particle resampling
 
-prop → particle propagation
+Each iteration completes in ~**0.012 ms**, proving efficient GPU acceleration.
 
-update → weight computation
+---
 
-norm → weight normalization
+## 🖼 Test Data
 
-resamp → particle resampling
+The repository includes **10 synthetic PGM images**:
 
-Each iteration completes in ~0.012 ms, proving efficient GPU acceleration.
+* 256×256 grayscale images
+* Stored in `pgm_images.zip`
+* Used for benchmarking and testing
 
-🖼 Test Data
+---
 
-The repository includes 10 synthetic PGM images:
+## 📈 Performance Highlights
 
-256×256 grayscale images
+* One GPU thread per particle
+* Sub-millisecond kernel execution
+* Efficient scaling with particle count
+* Minimal host-device transfers
 
-Stored in pgm_images.zip
+---
 
-Used for benchmarking and testing
+## 🧪 What I Learned
 
-📈 Performance Highlights
+* CUDA kernel design
+* GPU memory management
+* Parallel reduction
+* Performance profiling
+* Kernel optimization strategies
 
-One GPU thread per particle
+---
 
-Sub-millisecond kernel execution
+## 🔮 Future Work
 
-Efficient scaling with particle count
+* Real sensor / camera input
+* Shared memory optimization
+* Thrust-based prefix sum resampling
+* Visualization of particle movement
+* Multi-GPU scaling
 
-Minimal host-device transfers
+---
 
-🧪 What I Learned
+## 🎯 Conclusion
 
-CUDA kernel design
-
-GPU memory management
-
-Parallel reduction
-
-Performance profiling
-
-Kernel optimization strategies
-
-🔮 Future Work
-
-Real sensor / camera input
-
-Shared memory optimization
-
-Thrust-based prefix sum resampling
-
-Visualization of particle movement
-
-Multi-GPU scaling
-
-🎯 Conclusion
-
-This project demonstrates how GPU computing transforms particle filtering from a slow CPU process into a real-time parallel system.
+This project demonstrates how GPU computing transforms particle filtering from a slow CPU process into a **real-time parallel system**.
 It highlights CUDA’s power for scientific and robotics applications.
 
-👤 Author
+---
 
-Utkarsh Mishra
+## 👤 Author
+
+**Utkarsh Mishra**
 GPU Specialization Capstone Project
+
+---
+
+If you want, I can also generate:
+
+✔ GitHub repo description
+✔ Makefile
+✔ Project report PDF
+✔ Performance graphs
+✔ Short video script
+
+Just tell me 👍
