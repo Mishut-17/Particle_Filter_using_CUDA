@@ -1,11 +1,8 @@
-Here you go — **direct copy-paste README** for GitHub 👇
-(just paste this into `README.md`)
-
 ---
 
-# 🚀 CUDA Particle Filter – GPU Capstone Project
+#  CUDA Particle Filter – GPU Capstone Project
 
-## 📌 Overview
+##  Overview
 
 This project implements a **CUDA-accelerated Particle Filter** for real-time state estimation and tracking.
 The objective is to demonstrate how GPU parallelism significantly improves performance by processing thousands of particles simultaneously.
@@ -22,7 +19,7 @@ This project was developed as part of the **GPU Specialization Capstone**.
 
 ---
 
-## 🧠 Algorithm Summary
+##  Algorithm Summary
 
 A **particle filter** estimates the state of a system using many random samples called particles.
 
@@ -66,7 +63,7 @@ GPU parallelism assigns **one thread per particle**, enabling massive speedup ov
 
 ---
 
-## 🔧 Compilation
+##  Compilation
 
 ```
 nvcc -o particle_filter main.cu particle_filter.cu
@@ -74,7 +71,7 @@ nvcc -o particle_filter main.cu particle_filter.cu
 
 ---
 
-## ▶️ Execution
+##  Execution
 
 ```
 ./particle_filter
@@ -88,7 +85,7 @@ If arguments are required:
 
 ---
 
-## 📊 Sample Output
+##  Sample Output
 
 ```
 Init time (ms): 11.3092
@@ -112,7 +109,7 @@ Each iteration completes in ~**0.012 ms**, proving efficient GPU acceleration.
 
 ---
 
-## 🖼 Test Data
+##  Test Data
 
 The repository includes **10 synthetic PGM images**:
 
@@ -122,7 +119,7 @@ The repository includes **10 synthetic PGM images**:
 
 ---
 
-## 📈 Performance Highlights
+##  Performance Highlights
 
 * One GPU thread per particle
 * Sub-millisecond kernel execution
@@ -131,7 +128,7 @@ The repository includes **10 synthetic PGM images**:
 
 ---
 
-## 🧪 What I Learned
+##  What I Learned
 
 * CUDA kernel design
 * GPU memory management
@@ -141,7 +138,7 @@ The repository includes **10 synthetic PGM images**:
 
 ---
 
-## 🔮 Future Work
+##  Future Work
 
 * Real sensor / camera input
 * Shared memory optimization
@@ -151,26 +148,16 @@ The repository includes **10 synthetic PGM images**:
 
 ---
 
-## 🎯 Conclusion
+##  Conclusion
 
 This project demonstrates how GPU computing transforms particle filtering from a slow CPU process into a **real-time parallel system**.
 It highlights CUDA’s power for scientific and robotics applications.
 
 ---
 
-## 👤 Author
+##  Author
 
 **Utkarsh Mishra**
 GPU Specialization Capstone Project
 
 ---
-
-If you want, I can also generate:
-
-✔ GitHub repo description
-✔ Makefile
-✔ Project report PDF
-✔ Performance graphs
-✔ Short video script
-
-Just tell me 👍
